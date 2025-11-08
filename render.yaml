@@ -1,0 +1,27 @@
+# Exported from Render on 2025-11-08T05:59:18Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: floatchat-backend
+      runtime: node
+      repo: https://github.com/PrasadDeore747/floatchat-backend
+      plan: free
+      envVars:
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: PORT
+        sync: false
+      region: oregon
+      buildCommand: npm install
+      startCommand: node server.js
+      autoDeployTrigger: commit
